@@ -12,9 +12,9 @@ class lReticle {
 
   void drawlReticle() {
     noStroke();
-    r = 249;
-    g = 121;
-    b = 0;
+    r = 19;
+    g = 156;
+    b = 255;
     fill (r, g, b);
     rect(position.x, position.y, 20, 50);
   }

@@ -1,4 +1,4 @@
-class Projectile {
+class lProjectile {
 
   //Data
   PVector position;
@@ -9,27 +9,26 @@ class Projectile {
   float hsize; //height
   
 //Constructor
-  Projectile(float x, float y) {
+  lProjectile(float x, float y) {
     //885, 200
     wsize = 50;
     hsize = 10;
-    acceleration = new PVector (-0.1, 0);
+    acceleration = new PVector (+0.1, 0);
     velocity = new PVector (0, 0);
     position = new PVector(x, y);
   }
 
 
-  void moveProjectile() {
+  void movelProjectile() {
     velocity.add(acceleration);
     position.add(velocity);
   }
 
 
-  void drawProjectile() {
-    stroke (255);
-    r = 249;
-    g = 121;
-    b = 0;
+  void drawlProjectile() {
+    r = 19;
+    g = 156;
+    b = 255;
     fill (r, g, b);
     rect (position.x, position.y, 50, 10);
   }
