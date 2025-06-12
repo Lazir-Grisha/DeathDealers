@@ -1,6 +1,6 @@
-//ArrayList<Projectile> card = new ArrayList<Projectile>();
+ArrayList<Projectile> cards;
 
-boolean shoot=false;
+boolean shoot = false;
 //variables to determine Game States
 boolean gameStart = true;
 boolean characterSelection = false;
@@ -22,7 +22,7 @@ boolean ReticleUp = false;
 boolean ReticleDown = false;
 
 Reticle leftReticle = new Reticle();
-Projectile card = new Projectile();
+//Projectile cards = new Projectile();
 
 
 
@@ -33,17 +33,19 @@ void setup() {
   rectMode(CENTER);
   Game = loadImage("Game.jpeg");
   Start = loadImage("Start.jpeg");
-  //card = new ArrayList <Projectile>();
+  cards = new ArrayList<Projectile>();
 }
 
 void draw() {
   leftReticle.drawReticle();
   //leftReticle.moveReticle();
-  
-  card.drawProjectile();
-  card.moveProjectile();
-  
-  //drawCharacter();
+  for (int i = 0; i < cards.size(); i++) {
+    Projectile c = cards.get(i);
+    c.drawProjectile();
+    c.moveProjectile();
+  }
+
+  drawCharacter();
 
   //Shoot card
 
@@ -74,5 +76,15 @@ void keyPressed() {
   } else ReticleDown = false;
   if (keyCode == LEFT || keyCode == RIGHT) {
     shoot = true;
-  } else shoot = false;
+  }
+  if (shoot == true) {
+    Projectile c = new Projectile(885, 200);
+    cards.add(c);
+  }
+}
+
+void keyReleased( ) {
+  if (shoot == true) {
+    shoot = false;
+  }
 }
