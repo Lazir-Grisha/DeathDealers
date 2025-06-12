@@ -1,15 +1,19 @@
+//makes a draw character function with a customizable x position and use of boolean to determine one of two colours
+
 void drawCharacter(int xpos, boolean direction) {
 
 
   //draw Pink Character
 
   //set colour to Pink
+  
   if (direction == true){
   r=244;
   g= 5;
   b = 247;
 
   ////draw the character
+  
   noStroke();
   fill (r+9, g+98, b+8);
   rect(xpos, 105, 40, 50);
@@ -22,15 +26,18 @@ void drawCharacter(int xpos, boolean direction) {
   rect(xpos, 60, 20, 40);
   rect(xpos, 305, 40, 50);
   }
+  
   //draw Green Character
 
   //set colour to Green
+  
   if (direction == false){
   r= 87;
   g = 254;
   b =13;
 
   ////draw the character
+  
   noStroke();
   fill (r+50, g+1, b+72);
   rect(xpos, 105, 40, 50);
