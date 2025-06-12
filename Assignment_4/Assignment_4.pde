@@ -31,8 +31,8 @@ void setup() {
   background (0);
   imageMode(CENTER);
   rectMode(CENTER);
-  Game = loadImage("Game.jpeg");
-  Start = loadImage("Start.jpeg");
+  Game = loadImage("Game.png");
+  Start = loadImage("Start.png");
   cards = new ArrayList<Projectile>();
 }
 
