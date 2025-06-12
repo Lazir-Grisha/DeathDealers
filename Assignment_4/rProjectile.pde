@@ -32,4 +32,13 @@ class rProjectile {
     fill (r, g, b);
     rect (position.x, position.y, 50, 10);
   }
+  
+  boolean lBarrier(lReticle r) {
+    float distance = dist (position.x, position.y, r.position.x, r.position.y);
+    if((distance < wsize + r.wsize) && (distance< hsize + r.hsize)) {
+    return true;
+  } else {
+    return false;
   }
+  }
+}

@@ -3,9 +3,13 @@ class lReticle {
   public PVector position;
   PVector velocity;
 
+  float wsize; //width
+  float hsize; //height
 
   //Constructor
   lReticle() {
+    wsize = 20;
+    hsize = 50;
     position = new PVector(70, 200);
     velocity = new PVector (0, 0);
   }
@@ -16,7 +20,7 @@ class lReticle {
     g = 156;
     b = 255;
     fill (r, g, b);
-    rect(position.x, position.y, 20, 50);
+    rect(position.x, position.y, wsize, hsize);
   }
 
   void movelReticle() {

@@ -3,9 +3,13 @@ class rReticle {
   public PVector position;
   PVector velocity;
 
-
+  float wsize; //width
+  float hsize; //height
+  
   //Constructor
   rReticle() {
+    wsize = 20;
+    hsize = 50;
     position = new PVector(930, 200);
     velocity = new PVector (0, 0);
   }
@@ -16,7 +20,7 @@ class rReticle {
     g = 121;
     b = 0;
     fill (r, g, b);
-    rect(position.x, position.y, 20, 50);
+    rect(position.x, position.y, wsize, hsize);
   }
 
   void moverReticle() {

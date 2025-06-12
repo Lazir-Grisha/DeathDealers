@@ -68,33 +68,53 @@ void draw() {
       c.drawrProjectile();
       c.moverProjectile();
     }
-     for (int i = 0; i < lcards.size(); i++) {
+    for (int i = 0; i < lcards.size(); i++) {
       lProjectile c = lcards.get(i);
       c.drawlProjectile();
       c.movelProjectile();
     }
-    //calls the draw character functions
+    for (int j = lcards.size()-1; j >= 0; j--) {
+      for (int i = rcards.size()-1; i >= 0; i--) {
+        if (lcards.get(j).Pintersect(rcards.get(i)) == true) {
+          rcards.remove(i);
+          lcards.remove (j);
+        }
+      }
+    }
+    for (int i = lcards.size()-1; i >= 0; i--){
+       if (lcards.get(i).rBarrier(rightReticle) == true) {
+          lcards.remove (i);
+        }
+      }
+       for (int i = rcards.size()-1; i >= 0; i--){
+       if (rcards.get(i).lBarrier(leftReticle) == true) {
+          rcards.remove (i);
+        }
+      }
     drawCharacter(0, false);
     drawCharacter(1000, true);
   }
+  //calls the draw character functions
+
+
   //game over condition
- if (rcards.size() >= 1) {
-  if (rcards.get(0).position.x < 55) {
-   gameOver = true;
-    
-    image(Game, width/2, 75, Game.width/12, Game.height/12);
-    image(Pink, width/2, 175, Pink.width/12, Pink.height/12);
-    image(Restart, width/2, 300, Restart.width/12, Restart.height/12);
-}
- }
- if (lcards.size() >= 1) {
-  if (lcards.get(0).position.x > 945) {
-   gameOver = true;
-    image(Game, width/2, 75, Game.width/12, Game.height/12);
-    image(Green, width/2, 175, Green.width/12, Green.height/12);
-    image(Restart, width/2, 300, Restart.width/12, Restart.height/12);
-}
- }
+  if (rcards.size() >= 1) {
+    if (rcards.get(0).position.x < 55) {
+      gameOver = true;
+
+      image(Game, width/2, 75, Game.width/12, Game.height/12);
+      image(Pink, width/2, 175, Pink.width/12, Pink.height/12);
+      image(Restart, width/2, 300, Restart.width/12, Restart.height/12);
+    }
+  }
+  if (lcards.size() >= 1) {
+    if (lcards.get(0).position.x > 945) {
+      gameOver = true;
+      image(Game, width/2, 75, Game.width/12, Game.height/12);
+      image(Green, width/2, 175, Green.width/12, Green.height/12);
+      image(Restart, width/2, 300, Restart.width/12, Restart.height/12);
+    }
+  }
 }
 
 void keyPressed() {
@@ -131,8 +151,8 @@ void keyPressed() {
     background (0);
     gameOver = false;
     gameStart = true;
-  rcards = new ArrayList<rProjectile>();
-  lcards = new ArrayList<lProjectile>();
+    rcards = new ArrayList<rProjectile>();
+    lcards = new ArrayList<lProjectile>();
   }
 }
 
@@ -140,7 +160,7 @@ void keyReleased () {
   if (rshoot == true) {
     rshoot = false;
   }
-    if (lshoot == true) {
+  if (lshoot == true) {
     lshoot = false;
   }
   if (keyCode == UP) {

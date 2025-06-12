@@ -7,8 +7,8 @@ class lProjectile {
 
   float wsize; //width
   float hsize; //height
-  
-//Constructor
+
+  //Constructor
   lProjectile(float x, float y) {
     //885, 200
     wsize = 50;
@@ -32,4 +32,22 @@ class lProjectile {
     fill (r, g, b);
     rect (position.x, position.y, 50, 10);
   }
+
+  boolean Pintersect(rProjectile r) {
+    float distance = dist(position.x, position.y, r.position.x, r.position.y);
+    if ((distance < wsize + r.wsize) && (distance< hsize + r.hsize)) {
+      return true;
+    } else {
+      return false;
+    }
   }
+  
+  boolean rBarrier(rReticle r) {
+    float distance = dist (position.x, position.y, r.position.x, r.position.y);
+    if ((distance < wsize + r.wsize) && (distance< hsize + r.hsize)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
