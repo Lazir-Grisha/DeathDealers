@@ -25,10 +25,8 @@ Reticle leftReticle = new Reticle();
 //Projectile cards = new Projectile();
 
 
-
 void setup() {
   size(1000, 400);
-  background (0);
   imageMode(CENTER);
   rectMode(CENTER);
   Game = loadImage("Game.png");
@@ -37,31 +35,23 @@ void setup() {
 }
 
 void draw() {
+  background (0);
+
   leftReticle.drawReticle();
-  //leftReticle.moveReticle();
+  leftReticle.moveReticle();
   for (int i = 0; i < cards.size(); i++) {
     Projectile c = cards.get(i);
     c.drawProjectile();
     c.moveProjectile();
   }
-
   drawCharacter();
-
-  //Shoot card
-
-  //if (shoot == true) {
-  //  card.add(new Projectile());
-  //}
-  //for (Projectile part : card) {
-  //  drawProjectile();
-  //}
 
 
 
   //Display Start Screen
-  //if (GameStart == true) {
-  // GameStart();
-  // } else background(255);
+  if (gameStart == true) {
+  GameStart();
+  } else background(0);
 }
 
 void keyPressed() {
@@ -70,15 +60,15 @@ void keyPressed() {
   }
   if (keyCode == UP) {
     ReticleUp = true;
-  } else ReticleUp = false;
+  }
   if (keyCode == DOWN) {
     ReticleDown = true;
-  } else ReticleDown = false;
+  }
   if (keyCode == LEFT || keyCode == RIGHT) {
     shoot = true;
   }
   if (shoot == true) {
-    Projectile c = new Projectile(885, 200);
+    Projectile c = new Projectile(885, leftReticle.position.y);
     cards.add(c);
   }
 }
@@ -86,5 +76,11 @@ void keyPressed() {
 void keyReleased( ) {
   if (shoot == true) {
     shoot = false;
+  }
+  if (keyCode == UP) {
+    ReticleUp = false;
+  }
+  if (keyCode == DOWN) {
+    ReticleDown = false;
   }
 }

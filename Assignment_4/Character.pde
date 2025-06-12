@@ -1,6 +1,5 @@
-//int xpos = width/2;
-
 void drawCharacter() {
+int xpos = width/2;
 
   //draw Orange Character
 
@@ -72,7 +71,7 @@ void drawCharacter() {
     ////draw the character
   noStroke();
   fill (r+50, g+1, b+72);
-  rect(width/2, 105, 40, 50);
+  rect(xpos, 105, 40, 50);
   rect(width/2, 105, 60, 10);
   fill(r, g, b);
   rect(width/2, 205, 80, 150);

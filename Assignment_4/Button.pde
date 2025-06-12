@@ -9,7 +9,7 @@ class Button {
   void drawButton () {
     rectMode (CENTER);
     stroke(0);
-    fill(0, 0, 0, 0);
+    noFill();
     rect(xpos, ypos, 40, 40);
   }
 
