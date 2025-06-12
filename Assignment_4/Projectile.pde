@@ -1,6 +1,5 @@
 class Projectile {
 
-  //float spawnLocation = 200;
   //Data
   PVector position;
   PVector velocity;
