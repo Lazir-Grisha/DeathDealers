@@ -7,6 +7,10 @@ ArrayList<lProjectile> lcards;
 
 boolean rshoot = false;
 boolean lshoot = false;
+  
+ //a varaible to destory the projectiles
+  
+boolean ldestroy = false;
 
 //variables to determine Game States
 
@@ -104,17 +108,28 @@ void draw() {
     for (int j = lcards.size()-1; j >= 0; j--) {
       for (int i = rcards.size()-1; i >= 0; i--) {
         if (lcards.get(j).Pintersect(rcards.get(i)) == true) {
-          rcards.remove(i);
-          lcards.remove (j);
+          rcards.get(i).rdestroy = true;
+          lcards.get(j).ldestroy = true;
         }
       }
     }
+    
+        for (int j = lcards.size()-1; j >= 0; j--) {
+          if (lcards.get(j).ldestroy == true) {
+            lcards.remove(j);
+        }
+        }
+        
+        for (int i = rcards.size()-1; i >= 0; i--) {
+          if (rcards.get(i).rdestroy == true) {
+            rcards.remove(i);
+        }
+        }
 
     //Collision for cards with reticles
 
     for (int i = lcards.size()-1; i >= 0; i--) {
       if (lcards.get(i).rBarrier(rightReticle) == true) {
-        println("i");
         lcards.remove (i);
       }
     }

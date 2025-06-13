@@ -9,6 +9,10 @@ class lProjectile {
   float wsize; //width
   float hsize; //height
 
+  // to destroy the projectile
+
+  boolean ldestroy = false;
+
   //Constructor
 
   lProjectile(float x, float y) {
@@ -32,10 +36,10 @@ class lProjectile {
   //function that draws the individual projectiles
 
   void drawlProjectile() {
-    
-  //set colour to blue
 
-    
+    //set colour to blue
+
+
     r = 19;
     g = 156;
     b = 255;

@@ -8,6 +8,10 @@ class rProjectile {
 
   float wsize; //width
   float hsize; //height
+  
+  // to destroy the projectile
+
+  boolean rdestroy = false;
 
   //Constructor
 
@@ -33,9 +37,9 @@ class rProjectile {
 
 
   void drawrProjectile() {
-    
+
     //set colour to orange
-    
+
     r = 249;
     g = 121;
     b = 0;
